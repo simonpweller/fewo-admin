@@ -1,10 +1,10 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import UserContext from '../user-context';
+import GlobalContext from '../contexts/global-context';
 
 class Logout extends React.Component {
   componentDidMount() {
-    this.context.clearToken();
+    this.context.user.clearToken();
     this.props.history.push('/login');
   }
 
@@ -14,6 +14,6 @@ class Logout extends React.Component {
 }
 
 const WrappedLogout = withRouter(Logout);
-WrappedLogout.WrappedComponent.contextType = UserContext;
+WrappedLogout.WrappedComponent.contextType = GlobalContext;
 
 export default WrappedLogout;

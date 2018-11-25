@@ -1,11 +1,11 @@
 import React from 'react';
-import UserContext from '../user-context';
+import GlobalContext from '../contexts/global-context';
 import { Route, Redirect } from 'react-router-dom';
 
 export default ({ component: Component, ...rest }) => {
   return (
-    <UserContext.Consumer>
-      {({ hasAuth }) => (
+    <GlobalContext.Consumer>
+      {({ user: { hasAuth } }) => (
         <Route
           {...rest}
           render={props =>
@@ -22,6 +22,6 @@ export default ({ component: Component, ...rest }) => {
           }
         />
       )}
-    </UserContext.Consumer>
+    </GlobalContext.Consumer>
   );
 }
