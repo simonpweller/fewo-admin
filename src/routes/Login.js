@@ -13,7 +13,7 @@ class Login extends React.Component {
         password
       });
       this.context.setToken(token);
-      this.props.history.push('/secret');
+      this.props.history.push('/');
     } catch (err) {
       console.error(err);
     }
@@ -21,30 +21,42 @@ class Login extends React.Component {
 
   render() {
     return (
+      <div className="row justify-content-center pt-5">
+        <div className="col-lg-8">
+          {this.renderForm()}
+        </div>
+      </div>
+    );
+  }
+
+  renderForm() {
+    return (
       <Form onSubmit={this.onSubmit}
         render={({ handleSubmit }) => (
           <form onSubmit={handleSubmit}>
-            <fieldset>
+            <div className="form-group">
               <label htmlFor="username">Benutzername</label>
               <Field
                 name="username"
                 component="input"
                 type="text"
+                className="form-control"
               />
-            </fieldset>
-            <fieldset>
+            </div>
+            <div className="form-group">
               <label htmlFor="password">Passwort</label>
               <Field
                 name="password"
                 component="input"
                 type="password"
+                className="form-control"
               />
-            </fieldset>
-            <button type="submit">Login</button>
+            </div>
+            <button type="submit" className="btn btn-primary">Login</button>
           </form>
         )}
       />
-    );
+    )
   }
 }
 

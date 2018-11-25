@@ -20,6 +20,7 @@ export class UserProvider extends React.Component {
     clearToken: () => {
       localStorage.removeItem('token');
       delete axios.defaults.headers.common['Authorization'];
+      this.setState({ hasAuth: false })
     }
   }
   render() {
