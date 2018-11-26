@@ -6,7 +6,7 @@ const token = localStorage.getItem('token');
 if (token) {
   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 }
-axios.defaults.baseURL = process.env.API_URL || 'http://localhost:8081';
+axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:8081';
 
 const GlobalContext = React.createContext();
 
