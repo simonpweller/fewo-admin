@@ -47,8 +47,8 @@ class BookingForm extends React.Component {
     const bookingId = this.props.match.params.bookingId;
     let booking = bookingId && this.context.bookings.bookings.find(booking => booking._id === bookingId);
     if (booking) {
-      booking.arrivalDate = format(booking.arrivalDate, 'YYYY-MM-DD');
-      booking.departureDate = format(booking.departureDate, 'YYYY-MM-DD');
+      booking.booking.dates.from = format(booking.dates.from, 'YYYY-MM-DD');
+      booking.dates.to = format(booking.dates.to, 'YYYY-MM-DD');
     }
 
     return (
@@ -122,18 +122,18 @@ class BookingForm extends React.Component {
             </div>
             <div className="row">
               <div className="form-group col-sm-6">
-                <label htmlFor="arrivalDate">Anreisetag</label>
+                <label htmlFor="dates.from">Anreisetag</label>
                 <Field
-                  name="arrivalDate"
+                  name="dates.from"
                   component="input"
                   type="date"
                   className="form-control"
                 />
               </div>
               <div className="form-group col-sm-6">
-                <label htmlFor="departureDate">Abreisetag</label>
+                <label htmlFor="dates.to">Abreisetag</label>
                 <Field
-                  name="departureDate"
+                  name="dates.to"
                   component="input"
                   type="date"
                   className="form-control"

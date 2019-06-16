@@ -18,7 +18,7 @@ export default ({ bookings, onConfirm, onDelete, onEdit }) => (
       {bookings.map(booking => (
         <tr key={booking._id}>
           <td className="align-middle">{booking.accommodation === 'house' ? <i className="fas fa-home"></i> : <i className="far fa-building"></i>}</td>
-          <td className="align-middle">{format(booking.arrivalDate, 'DD.MM.YY')} - {format(booking.departureDate, 'DD.MM.YY')}</td>
+          <td className="align-middle">{format(booking.dates.from, 'DD.MM.YY')} - {format(booking.dates.to, 'DD.MM.YY')}</td>
           <td className="align-middle">{booking.guest && booking.guest.firstName} {booking.guest && booking.guest.lastName}</td>
           <td className="align-middle">
             {booking.guest && booking.guest.phone}
